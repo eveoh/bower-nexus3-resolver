@@ -522,6 +522,7 @@ describe('bower-nexus3-resolver', function() {
     it('files are successfully extracted', function() {
       return resolver._extractTarGz('test/test.tar.gz')
           .then(function(result) {
+            assert(fs.existsSync(result + '/test.txt'), 'test.txt should have been extracted');
             assert(result);
           })
           .catch(function(error) {
